@@ -1,17 +1,21 @@
+import { async } from "regenerator-runtime";
 import { API, broadcast } from "./util";
 
 export default class FollowToggle {
   constructor(toggleButton) {
     // Your code here
-    // this.toggleButton = toggleButton
+    this.toggleButton = toggleButton
 
     //event listener for 'click' operation
-    // this.toggleButton.addEventListener("click", (this.handleClick.bind(this)));
+    this.toggleButton.addEventListener("click", (this.handleClick.bind(this)));
+    // console.log(this.followState)
   }
 
   async handleClick(e) {
 
-    // this.toggleButton === this.follow() ? this.unfollow() : this.follow();
+    e.preventDefault();
+    
+    this.followState === "followed" ? this.unfollow() : this.follow();
 
     //event listener logic for 'click'
 
@@ -21,9 +25,10 @@ export default class FollowToggle {
   }
 
   async follow() {
-    // this.follow() = this.unfollow()
     //follow logic should follow a user and reassign the button to equal unfollow
     // Your code here
+    const followUser = await 
+    
   }
 
   async unfollow() {
