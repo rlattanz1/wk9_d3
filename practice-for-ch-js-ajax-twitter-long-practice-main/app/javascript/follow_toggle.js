@@ -14,7 +14,8 @@ export default class FollowToggle {
   async handleClick(e) {
 
     e.preventDefault();
-    
+
+
     this.followState === "followed" ? this.unfollow() : this.follow();
 
     //event listener logic for 'click'
@@ -25,14 +26,18 @@ export default class FollowToggle {
   }
 
   async follow() {
+    console.log(this.toggleButton, "follow")
     //follow logic should follow a user and reassign the button to equal unfollow
     // Your code here
-    const followUser = await 
-    
+
+    const followedUser = await API.followUser(this.toggleButton.dataset.userId);
+    this.followState = "followed"
   }
 
   async unfollow() {
-    // this.unfollow() = this.follow()
+    console.log(this.toggleButton, "unfollow")
+    const unfollowedUser = await API.unfollowUser(this.toggleButton.dataset.userId);
+    this.followState = "unfollowed"
     //unfollow logic should unfollow a user and reassign the button to equal follow
     // Your code here
   }
